@@ -34,6 +34,7 @@
                     <pushChanges>false</pushChanges>
                     <localCheckout>true</localCheckout>
                     <goals>install</goals>
+                    <autoVersionSubmodels>true</autoVersionSubmodels>
                 </configuration>
                 </plugin>
         </plugins>
