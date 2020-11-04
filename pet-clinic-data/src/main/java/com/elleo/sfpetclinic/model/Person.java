@@ -1,6 +1,6 @@
 package com.elleo.sfpetclinic.model;
 
-public class Person {
+public class Person extends BaseEntity {
 
     private String name;
     private String lastName;
