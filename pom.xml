@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.elleo</groupId>
     <artifactId>sf-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>sf-pet-clinic</name>
     <description>Demo project for Spring Boot</description>
 
@@ -42,7 +42,7 @@
 
     <scm>
         <developerConnection>scm:git:github@github.com:elleom/sf-pet-clinic.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>sf-pet-clinic-0.0.2</tag>
   </scm>
 
 
