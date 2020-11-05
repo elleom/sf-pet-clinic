@@ -2,10 +2,13 @@ package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Vet;
 import com.elleo.sfpetclinic.services.CrudService;
+import com.elleo.sfpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+@Service
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -30,5 +33,10 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     @Override
     public void deleteByID(Long aLong) {
             super.deleteById(aLong);
+    }
+
+    @Override
+    public Vet findByLastName(String lastName) {
+        return null;
     }
 }
