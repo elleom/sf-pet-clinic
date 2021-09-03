@@ -54,4 +54,5 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 
     }
 
+    protected abstract T findbyId(ID aLong);
 }
