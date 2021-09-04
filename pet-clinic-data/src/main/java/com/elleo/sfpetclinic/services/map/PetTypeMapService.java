@@ -1,6 +1,5 @@
 package com.elleo.sfpetclinic.services.map;
 
-import com.elleo.sfpetclinic.model.Pet;
 import com.elleo.sfpetclinic.model.PetType;
 import com.elleo.sfpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
