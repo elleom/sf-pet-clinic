@@ -2,34 +2,37 @@ package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Pet;
 import com.elleo.sfpetclinic.services.CrudService;
+import com.elleo.sfpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
-        return super.findAll();
-    }
-
-    @Override
-    public void delete(Pet object) {
-        super.delete(object);
+        return PetService.super.findAll();
     }
 
     @Override
     public Pet findbyId(Long aLong) {
-        return super.findById(aLong);
+        return PetService.super.findbyId(aLong);
     }
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object);
+        return PetService.super.save(object);
+    }
+
+    @Override
+    public void delete(Pet object) {
+        PetService.super.delete(object);
     }
 
     @Override
     public void deleteByID(Long aLong) {
-        super.deleteById(aLong);
-
+        PetService.super.deleteByID(aLong);
     }
 }
+
