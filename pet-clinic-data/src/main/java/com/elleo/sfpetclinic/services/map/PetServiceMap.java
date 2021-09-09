@@ -1,7 +1,7 @@
 package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Pet;
-import com.elleo.sfpetclinic.services.CrudService;
+import com.elleo.sfpetclinic.model.Specialty;
 import com.elleo.sfpetclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
     }
 
     @Override
-    public Pet save(Pet object) {
+    public Pet save(Specialty object) {
         return PetService.super.save(object);
     }
 

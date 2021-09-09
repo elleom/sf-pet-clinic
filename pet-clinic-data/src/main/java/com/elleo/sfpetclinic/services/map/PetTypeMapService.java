@@ -1,6 +1,7 @@
 package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.PetType;
+import com.elleo.sfpetclinic.model.Specialty;
 import com.elleo.sfpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
@@ -11,26 +12,26 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
 
     @Override
     public Set<PetType> findAll() {
-        return PetTypeService.super.findAll();
+        return super.findAll();
     }
 
     @Override
-    public PetType findbyId(Long id) {
-        return PetTypeService.super.findbyId(id);
+    public PetType findById(Long id) {
+        return super.findById(id);
     }
 
     @Override
     public PetType save(PetType object) {
-        return PetTypeService.super.save(object);
+        return super.save(object);
     }
 
     @Override
     public void delete(PetType object) {
-        PetTypeService.super.delete(object);
+        super.delete(object);
     }
 
     @Override
-    public void deleteByID(Long id) {
-        PetTypeService.super.deleteByID(id);
+    public void deleteById(Long id) {
+        super.deleteById(id);
     }
 }

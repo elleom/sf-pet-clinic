@@ -1,6 +1,7 @@
 package com.elleo.sfpetclinic.services;
 
 import com.elleo.sfpetclinic.model.Pet;
+import com.elleo.sfpetclinic.model.Specialty;
 
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public interface PetService extends CrudService<Pet, Long> {
     }
 
     @Override
-    default Pet save(Pet object) {
+    default Pet save(Specialty object) {
         return null;
     }
 
