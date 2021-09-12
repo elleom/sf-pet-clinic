@@ -2,7 +2,7 @@ package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Speciality;
 import com.elleo.sfpetclinic.model.Vet;
-import com.elleo.sfpetclinic.services.SpecialtyService;
+import com.elleo.sfpetclinic.services.SpecialtiesService;
 import com.elleo.sfpetclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.Set;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
-    private final SpecialtyService specialtyService;
+    private final SpecialtiesService specialtyService;
 
-    public VetServiceMap(SpecialtyService specialtyService) {
+    public VetServiceMap(SpecialtiesService specialtyService) {
         this.specialtyService = specialtyService;
     }
 

@@ -3,7 +3,7 @@ package com.elleo.sfpetclinic.bootstrap;
 import com.elleo.sfpetclinic.model.*;
 import com.elleo.sfpetclinic.services.OwnerService;
 import com.elleo.sfpetclinic.services.PetTypeService;
-import com.elleo.sfpetclinic.services.SpecialtyService;
+import com.elleo.sfpetclinic.services.SpecialtiesService;
 import com.elleo.sfpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,9 +16,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialtyService specialtyService;
+    private final SpecialtiesService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtiesService specialtyService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
@@ -99,10 +99,16 @@ public class DataLoader implements CommandLineRunner {
         vet1.setLastName("Axe");
         vetService.save(vet1);
 
+        System.out.println("[+] Load Vet #1...");
+
         Vet vet2 = new Vet();
         vet2.setName("Jessie");
         vet2.setLastName("Porter");
         vet2.getSpecialities().add(savedDentistry);
         vetService.save(vet2);
+
+        System.out.println("[+] Load Vet #2...");
+
+        System.out.println("[+] Load Finished...");
     }
 }

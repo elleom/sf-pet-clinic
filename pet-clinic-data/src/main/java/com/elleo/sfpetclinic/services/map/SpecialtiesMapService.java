@@ -1,11 +1,13 @@
 package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Speciality;
-import com.elleo.sfpetclinic.services.SpecialtyService;
+import com.elleo.sfpetclinic.services.SpecialtiesService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialtiesMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
+@Service
+public class SpecialtiesMapService extends AbstractMapService<Speciality, Long> implements SpecialtiesService {
 
     @Override
     public Set<Speciality> findAll() {
