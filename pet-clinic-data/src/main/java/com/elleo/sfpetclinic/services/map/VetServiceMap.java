@@ -1,6 +1,6 @@
 package com.elleo.sfpetclinic.services.map;
 
-import com.elleo.sfpetclinic.model.Specialty;
+import com.elleo.sfpetclinic.model.Speciality;
 import com.elleo.sfpetclinic.model.Vet;
 import com.elleo.sfpetclinic.services.SpecialtyService;
 import com.elleo.sfpetclinic.services.VetService;
@@ -23,36 +23,33 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
     }
 
     @Override
+    public Vet save(Vet object) {
+
+        if (object.getSpecialities().size() > 0){
+            object.getSpecialities().forEach(speciality -> {
+                if(speciality.getId() == null){
+                    Speciality savedSpecialty = specialtyService.save(speciality);
+                    speciality.setId(savedSpecialty.getId());
+                }
+            });
+        }
+
+        return super.save(object);
+    }
+
+    @Override
     public void delete(Vet object) {
         super.delete(object);
     }
 
     @Override
-    public Vet findbyId(Long aLong) {
+    public Vet findById(Long aLong) {
         return super.findById(aLong);
     }
 
-
     @Override
-    public Vet save(Vet object) {
-        if (object.getSpecialities().size() > 0){
-            object.getSpecialities().forEach(specialty -> {
-                if (specialty.getId() == null) {
-                    Specialty savedSpecialty = specialtyService.save(specialty);
-                    specialty.setId(savedSpecialty.getId());
-                }
-            });
-        }
-        return super.save(object);
-    }
-
-    @Override
-    public void deleteByID(Long aLong) {
+    public void deleteById(Long aLong) {
             super.deleteById(aLong);
     }
 
-    @Override
-    public Vet findByLastName(String lastName) {
-        return null;
-    }
 }

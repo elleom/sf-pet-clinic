@@ -1,8 +1,8 @@
 package com.elleo.sfpetclinic.services;
 
-import com.elleo.sfpetclinic.model.Specialty;
+import com.elleo.sfpetclinic.model.Speciality;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface SpecialtyService extends CrudService<Specialty, Long>{
+public interface SpecialtyService extends CrudService<Speciality, Long>{
 }

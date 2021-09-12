@@ -1,7 +1,6 @@
 package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.PetType;
-import com.elleo.sfpetclinic.model.Specialty;
 import com.elleo.sfpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +33,6 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     public void deleteById(Long id) {
         super.deleteById(id);
     }
+
+
 }
