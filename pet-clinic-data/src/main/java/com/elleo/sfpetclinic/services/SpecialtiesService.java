@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface SpecialtiesService extends CrudService<Speciality, Long>{
+
 }
