@@ -3,11 +3,13 @@ package com.elleo.sfpetclinic.services.map;
 import com.elleo.sfpetclinic.model.Pet;
 import com.elleo.sfpetclinic.model.Speciality;
 import com.elleo.sfpetclinic.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
