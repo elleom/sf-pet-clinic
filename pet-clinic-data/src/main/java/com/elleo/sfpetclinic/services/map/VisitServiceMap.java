@@ -2,6 +2,7 @@ package com.elleo.sfpetclinic.services.map;
 
 import com.elleo.sfpetclinic.model.Visit;
 import com.elleo.sfpetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
  * @since 09/10/2021 15:14
  */
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
 
