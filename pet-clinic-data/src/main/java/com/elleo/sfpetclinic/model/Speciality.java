@@ -1,7 +1,12 @@
 package com.elleo.sfpetclinic.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "speciality")
 public class Speciality extends BaseEntity {
@@ -14,11 +19,4 @@ public class Speciality extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
