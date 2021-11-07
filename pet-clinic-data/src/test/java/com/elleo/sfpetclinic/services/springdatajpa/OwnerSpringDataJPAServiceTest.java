@@ -2,6 +2,8 @@ package com.elleo.sfpetclinic.services.springdatajpa;
 
 import com.elleo.sfpetclinic.model.Owner;
 import com.elleo.sfpetclinic.repositories.OwnerRepository;
+import com.elleo.sfpetclinic.repositories.PetRepository;
+import com.elleo.sfpetclinic.repositories.PetTypeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,73 +28,95 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class OwnerSpringDataJPAServiceTest {
 
+    public static final String LAST_NAME = "Smith";
     @Mock
     OwnerRepository ownerRepository;
 
-    @InjectMocks
-    OwnerSpringDataJPAService ownerSpringDataJPAService;
+    @Mock
+    PetRepository petRepository;
 
-    final String LAST_NAME = "Smith";
+    @Mock
+    PetTypeRepository petTypeRepository;
+
+    @InjectMocks
+    OwnerSpringDataJPAService service;
+
     Owner returnOwner;
 
     @BeforeEach
     void setUp() {
-       returnOwner  = Owner.builder().id(1L).lastName("Smith").build();
+        returnOwner = Owner.builder().id(1l).lastName(LAST_NAME).build();
+    }
+
+    @Test
+    void findByLastName() {
+        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
+
+        Owner smith = service.findByLastName(LAST_NAME);
+
+        assertEquals(LAST_NAME, smith.getLastName());
+
+        verify(ownerRepository).findByLastName(any());
     }
 
     @Test
     void findAll() {
-        Set<Owner> returnOwnerSet = new HashSet<>();
-        returnOwnerSet.add(Owner.builder().id(1L).build());
-        returnOwnerSet.add(Owner.builder().id(2L).build());
+        Set<Owner> returnOwnersSet = new HashSet<>();
+        returnOwnersSet.add(Owner.builder().id(1l).build());
+        returnOwnersSet.add(Owner.builder().id(2l).build());
 
-        Set<Owner> owners = ownerSpringDataJPAService.findAll();
+        when(ownerRepository.findAll()).thenReturn(returnOwnersSet);
+
+        Set<Owner> owners = service.findAll();
+
         assertNotNull(owners);
-        assertEquals(2, owners.size());
+        assertEquals(1, owners.size());
     }
 
     @Test
     void findById() {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
-        Owner owner = ownerSpringDataJPAService.findById(1L);
+
+        Owner owner = service.findById(1L);
+
         assertNotNull(owner);
     }
 
     @Test
     void findByIdNotFound() {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
-        Owner owner = ownerSpringDataJPAService.findById(1L);
+
+        Owner owner = service.findById(1L);
+
         assertNull(owner);
     }
+
 
     @Test
     void save() {
         Owner ownerToSave = Owner.builder().id(1L).build();
+
         when(ownerRepository.save(any())).thenReturn(returnOwner);
-        Owner savedOwner = ownerSpringDataJPAService.save(ownerToSave);
+
+        Owner savedOwner = service.save(ownerToSave);
+
         assertNotNull(savedOwner);
+
         verify(ownerRepository).save(any());
     }
 
     @Test
     void delete() {
-        ownerSpringDataJPAService.delete(returnOwner);
+        service.delete(returnOwner);
+
         //default is 1 times
         verify(ownerRepository, times(1)).delete(any());
     }
 
     @Test
     void deleteById() {
-        ownerSpringDataJPAService.deleteById(1L);
+        service.deleteById(1L);
 
         verify(ownerRepository).deleteById(anyLong());
-    }
-
-    @Test
-    void findByLastName() {
-        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
-        Owner smith = ownerSpringDataJPAService.findByLastName(LAST_NAME);
-        assertEquals(LAST_NAME, smith.getLastName());
-        verify(ownerRepository.findByLastName(any()));
     }
 }
