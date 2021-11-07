@@ -2,7 +2,7 @@
 # Spring Framework
 ## Pet Clinic
 
-Learning project base on course [Spring Framework] (https://github.com/spring-projects/spring-petclinic)
+Learning project base on [Spring Framework] (https://github.com/spring-projects/spring-petclinic)
 
 * Java 8
 * Circle CI
