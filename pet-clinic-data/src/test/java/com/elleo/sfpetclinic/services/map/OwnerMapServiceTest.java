@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author el_le
@@ -28,7 +27,7 @@ class OwnerMapServiceTest {
 
     @Test
     void findAll() {
-        Set<Owner> ownerSet =ownerMapService.findAll();
+        Set<Owner> ownerSet = ownerMapService.findAll();
         assertEquals(1, ownerSet.size());
     }
 
@@ -72,5 +71,11 @@ class OwnerMapServiceTest {
         Owner savedOwner = ownerMapService.findByLastName(lastName);
         assertNotNull(savedOwner);
         assertEquals(1L, savedOwner.getId());
+    }
+
+    @Test
+    void findByLastNameNotFound() {
+        Owner savedOwner = ownerMapService.findByLastName("foo");
+        assertNull(savedOwner);
     }
 }
