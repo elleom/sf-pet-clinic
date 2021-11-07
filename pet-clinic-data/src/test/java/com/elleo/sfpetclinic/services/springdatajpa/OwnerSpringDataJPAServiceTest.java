@@ -2,8 +2,6 @@ package com.elleo.sfpetclinic.services.springdatajpa;
 
 import com.elleo.sfpetclinic.model.Owner;
 import com.elleo.sfpetclinic.repositories.OwnerRepository;
-import com.elleo.sfpetclinic.repositories.PetRepository;
-import com.elleo.sfpetclinic.repositories.PetTypeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,10 +28,6 @@ class OwnerSpringDataJPAServiceTest {
 
     @Mock
     OwnerRepository ownerRepository;
-    @Mock
-    PetRepository petRepository;
-    @Mock
-    PetTypeRepository petTypeRepository;
 
     @InjectMocks
     OwnerSpringDataJPAService ownerSpringDataJPAService;
