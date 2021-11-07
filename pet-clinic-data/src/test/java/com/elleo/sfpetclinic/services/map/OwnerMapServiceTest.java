@@ -18,11 +18,12 @@ class OwnerMapServiceTest {
 
     OwnerMapService ownerMapService;
     Long ownerId = 1L;
+    String lastName = "Smith";
 
     @BeforeEach
     void setUp() {
         ownerMapService = new OwnerMapService(new PetTypeMapService(), new PetMapService());
-        ownerMapService.save(Owner.builder().id(ownerId).build());
+        ownerMapService.save(Owner.builder().id(ownerId).lastName(lastName).build());
     }
 
     @Test
@@ -56,13 +57,20 @@ class OwnerMapServiceTest {
 
     @Test
     void delete() {
+        ownerMapService.delete(ownerMapService.findById(ownerId));
+        assertEquals(0, ownerMapService.findAll().size());
     }
 
     @Test
     void deleteById() {
+        ownerMapService.deleteById(ownerId);
+        assertEquals(0, ownerMapService.findAll().size());
     }
 
     @Test
     void findByLastName() {
+        Owner savedOwner = ownerMapService.findByLastName(lastName);
+        assertNotNull(savedOwner);
+        assertEquals(1L, savedOwner.getId());
     }
 }
