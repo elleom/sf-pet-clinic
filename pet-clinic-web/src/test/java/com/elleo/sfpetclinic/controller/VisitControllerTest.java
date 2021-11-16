@@ -4,6 +4,7 @@ import com.elleo.sfpetclinic.model.Owner;
 import com.elleo.sfpetclinic.model.Pet;
 import com.elleo.sfpetclinic.model.PetType;
 import com.elleo.sfpetclinic.services.PetService;
+import com.elleo.sfpetclinic.services.VisitService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,6 +40,9 @@ public class VisitControllerTest {
 
     @Mock
     PetService petService;
+
+    @Mock
+    VisitService visitService;
 
     @InjectMocks
     VisitController visitController;
