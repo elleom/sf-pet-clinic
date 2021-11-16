@@ -80,4 +80,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                 .orElse(null);
     }
 
+    @Override
+    public List<Owner> findAllByLastNameLike(String anyString) {
+        //todo
+        return null;
+    }
+
 }
